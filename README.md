@@ -2,7 +2,7 @@
 
 Steps to install this on your SilverStripe:
 
-- Open `src/composer.json`.
+- Open your SilverStripe's `src/composer.json`.
 - Add the `https://github.com/evanshunt/eh-ss-blocks` URL to a `repositories` parameter.
     ```
       "repositories": [{
