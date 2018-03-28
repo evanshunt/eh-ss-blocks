@@ -18,8 +18,8 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image_Backend;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-use CyberDuck\LinkItemField\Forms\LinkItemField;
-use CyberDuck\LinkItemField\Model\LinkItem;
+// use CyberDuck\LinkItemField\Forms\LinkItemField;
+// use CyberDuck\LinkItemField\Model\LinkItem;
 
 class BucketElement extends BaseElement
 {
@@ -28,8 +28,8 @@ class BucketElement extends BaseElement
     ];
 
     private static $has_one = [
-        'Image' => Image::class,
-        'CTA' => LinkItem::class
+        'Image' => Image::class/*,
+        'CTA' => LinkItem::class*/
     ];
 
     private static $owns = [
@@ -53,8 +53,8 @@ class BucketElement extends BaseElement
 
         $fields->addFieldsToTab('Root.Main', [
             $imageUpload = UploadField::create('Image', 'Image')->setDescription('Optional image that appears at the top of the bucket'),
-            HtmlEditorField::create('Copy', 'Copy'),
-            LinkItemField::create('CTAID', 'Call To Action')
+            HtmlEditorField::create('Copy', 'Copy')/*,
+            LinkItemField::create('CTAID', 'Call To Action')*/
         ]);
 
         $imageUpload->getValidator()->setAllowedExtensions(array(

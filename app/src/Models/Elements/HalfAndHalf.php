@@ -18,8 +18,8 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image_Backend;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-use CyberDuck\LinkItemField\Forms\LinkItemField;
-use CyberDuck\LinkItemField\Model\LinkItem;
+// use CyberDuck\LinkItemField\Forms\LinkItemField;
+// use CyberDuck\LinkItemField\Model\LinkItem;
 
 class HalfAndHalfElement extends BaseElement
 {
@@ -32,9 +32,9 @@ class HalfAndHalfElement extends BaseElement
 
     private static $has_one = [
         'LeftBackground' => Image::class,
-        'LeftCTA' => LinkItem::class,
-        'RightBackground' => Image::class,
-        'RightCTA' => LinkItem::class
+        // 'LeftCTA' => LinkItem::class,
+        'RightBackground' => Image::class/*,
+        'RightCTA' => LinkItem::class*/
     ];
 
     private static $singular_name = 'Half and Half';
@@ -56,14 +56,14 @@ class HalfAndHalfElement extends BaseElement
         $fields->addFieldsToTab('Root.Main', [
             TextField::create('LeftTitle', 'Left Title'),
             HtmlEditorField::create('LeftCopy', 'Left Copy'),
-            LinkItemField::create('LeftCTAID', 'Call To Action'),
+            // LinkItemField::create('LeftCTAID', 'Call To Action'),
             $imageUpload = UploadField::create('LeftBackground', 'Left Background')->setDescription('Background image that is displayed behind the content')
         ]);
 
         $fields->addFieldsToTab('Root.Right Block', [
             TextField::create('RightTitle', 'Right Title'),
             HtmlEditorField::create('RightCopy', 'Right Copy'),
-            LinkItemField::create('RightCTAID', 'Call To Action'),
+            // LinkItemField::create('RightCTAID', 'Call To Action'),
             $imageUpload2 = UploadField::create('RightBackground', 'Right Background')->setDescription('Background image that is displayed behind the content')
         ]);
 

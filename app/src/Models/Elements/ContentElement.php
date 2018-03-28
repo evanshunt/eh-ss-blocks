@@ -18,8 +18,8 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image_Backend;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-use CyberDuck\LinkItemField\Forms\LinkItemField;
-use CyberDuck\LinkItemField\Model\LinkItem;
+// use CyberDuck\LinkItemField\Forms\LinkItemField;
+// use CyberDuck\LinkItemField\Model\LinkItem;
 
 class ContentElement extends BaseElement
 {
@@ -28,8 +28,8 @@ class ContentElement extends BaseElement
     ];
 
     private static $has_one = [
-        'Background' => Image::class,
-        'CTA' => LinkItem::class
+        'Background' => Image::class/*,
+        'CTA' => LinkItem::class*/
     ];
 
     private static $owns = [
@@ -51,7 +51,7 @@ class ContentElement extends BaseElement
         $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
         $fields->removeByName('Settings');
 
-        $fields->addFieldToTab('Root.Main', LinkItemField::create('CTAID', 'Call To Action'));
+        // $fields->addFieldToTab('Root.Main', LinkItemField::create('CTAID', 'Call To Action'));
 
         $fields->addFieldsToTab('Root.Main', [
             HtmlEditorField::create('Copy', 'Copy'),
