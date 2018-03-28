@@ -1,7 +1,7 @@
 {
     "name": "evanshunt/elemental-addons",
     "description": "A collection of CMS blocks for the silverstripe-elemental module for use in EH projects",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "homepage": "https://github.com/evanshunt/eh-ss-blocks",
     "support": {
         "issues": "https://github.com/evanshunt/eh-ss-blocks/issues"
