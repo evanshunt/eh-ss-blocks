@@ -1,6 +1,6 @@
 <?php
 
-namespace EvansHunt\ElementalAddons;
+namespace EvansHunt\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\FieldList;

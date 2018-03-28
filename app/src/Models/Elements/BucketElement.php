@@ -1,6 +1,6 @@
 <?php
 
-namespace EvansHunt\ElementalAddons;
+namespace EvansHunt\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\FieldList;
@@ -21,28 +21,28 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 use CyberDuck\LinkItemField\Forms\LinkItemField;
 use CyberDuck\LinkItemField\Model\LinkItem;
 
-class ContentElement extends BaseElement
+class BucketElement extends BaseElement
 {
     private static $db = [
         'Copy' => 'HTMLText'
     ];
 
     private static $has_one = [
-        'Background' => Image::class,
+        'Image' => Image::class,
         'CTA' => LinkItem::class
     ];
 
     private static $owns = [
-        'Background'
+        'Image'
     ];
 
-    private static $singular_name = 'Content';
+    private static $singular_name = 'Bucket';
 
-    private static $plural_name = 'Contents';
+    private static $plural_name = 'Buckets';
 
-    private static $description = 'Flexible content block with optional elements';
+    private static $description = 'Content bucket to be used in a List';
 
-    private static $table_name = 'ContentElement';
+    private static $table_name = 'BucketElement';
 
     public function getCMSFields()
     {
@@ -51,24 +51,23 @@ class ContentElement extends BaseElement
         $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
         $fields->removeByName('Settings');
 
-        $fields->addFieldToTab('Root.Main', LinkItemField::create('CTAID', 'Call To Action'));
-
         $fields->addFieldsToTab('Root.Main', [
+            $imageUpload = UploadField::create('Image', 'Image')->setDescription('Optional image that appears at the top of the bucket'),
             HtmlEditorField::create('Copy', 'Copy'),
-            $imageUpload = UploadField::create('Background', 'Background')->setDescription('Optional background image that is displayed behind the content')
+            LinkItemField::create('CTAID', 'Call To Action')
         ]);
 
         $imageUpload->getValidator()->setAllowedExtensions(array(
-            'png','jpeg','jpg'
+            'png','jpeg','jpg', 'svg'
         ));
-        $imageUpload->setFolderName('background');
+        $imageUpload->setFolderName('bucket');
 
         return $fields;
     }
 
     public function getType()
     {
-        return 'Content';
+        return 'Bucket';
     }
 
      /**
