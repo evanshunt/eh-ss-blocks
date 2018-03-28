@@ -1,0 +1,10 @@
+Page:
+  extensions:
+    - DNADesign\Elemental\Extensions\ElementalPageExtension
+  disallowed_elements:
+    - DNADesign\Elemental\Models\ElementContent
+    - EvansHunt\Elements\BucketElement
+
+DNADesign\Elemental\Models\BaseElement:
+  allowed_elements:
+    - EvansHunt\Elements\BucketElement

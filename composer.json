@@ -1,23 +1,18 @@
 {
     "name": "evanshunt/elemental-addons",
     "description": "A collection of CMS blocks for the silverstripe-elemental module for use in EH projects",
-    "type": "silverstripe-vendormodule",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "type": "silverstripe-module",
+    "homepage": "https://github.com/evanshunt/eh-ss-blocks",
+    "support": {
+        "issues": "https://github.com/evanshunt/eh-ss-blocks/issues"
+    },
     "require": {
-        "silverstripe/vendor-plugin": "^1.0",
+        "silverstripe/cms": "^4",
+        "silverstripe/framework": "^4",
         "dnadesign/silverstripe-elemental": "2.x-dev",
-        "silverstripe/cms": "^4.0",
-        "silverstripe/assets": "^1.0"
+        "dnadesign/silverstripe-elemental-list": "^1.0@dev"
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "EvansHunt\\ElementalAddons\\": "src/"
-        }
+        "installer-name": "eh-elemental-addons"
     }
 }
