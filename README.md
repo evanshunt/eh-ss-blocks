@@ -15,6 +15,11 @@ Steps to install this on your SilverStripe:
 - Add `"evanshunt/elemental-addons": "dev-master"` to your `require` list.
 - Run `composer update --ignore-platform-reqs`.
 
+## Creating Templates
+
+Within the project's `templates` folder create a `EvansHunt/Elements` folder. Inside this folder will be all the `.ss` files related to each element.
+
 ### To Do's
 
 1. Introduce a new CTA module for elements to use.
+2. Add documentation for each content block. Including template naming conventions.
