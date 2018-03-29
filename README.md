@@ -20,8 +20,11 @@ Steps to install this on your SilverStripe:
 Within the project's `templates` folder create a `EvansHunt/Elements` folder. Inside this folder will be all the `.ss` files related to each element.
 
 [ContentElement](/docs/templating/content-element.md)
+
 [HalfAndHalfElement](/docs/templating/half-and-half-element.md)
+
 [ImageElement](/docs/templating/image-element.md)
+
 [BucketElement](/docs/templating/bucket-element.md)
 
 ### To Dos
