@@ -24,7 +24,7 @@ Within the project's `templates` folder create a `EvansHunt/Elements` folder. In
 [ImageElement](/docs/templating/image-element.md)
 [BucketElement](/docs/templating/bucket-element.md)
 
-### To Do's
+### To Dos
 
 1. Introduce a new CTA module for elements to use.
 2. Add documentation for each content block. Including template naming conventions.
