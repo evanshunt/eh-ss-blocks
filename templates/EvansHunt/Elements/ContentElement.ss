@@ -1,0 +1,4 @@
+$Background
+$ShowTitle
+$Title
+$Copy
