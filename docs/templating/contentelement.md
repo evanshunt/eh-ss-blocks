@@ -6,6 +6,6 @@
 
 ### Variables:
 
-`$Title`: Element Title
-`$ShowTitle`: Is the title displayed or not?
-`$Copy`: Element Copy
+- `$Title`: Element Title
+- `$ShowTitle`: Is the title displayed or not?
+- `$Copy`: Element Copy
