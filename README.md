@@ -30,7 +30,7 @@ Within the project's `templates` folder create a `EvansHunt/Elements` folder. In
 ### To Dos
 
 1. Introduce a new CTA module for elements to use.
-2. Add documentation for each content block. Including template naming conventions.
+2. ~~Add documentation for each content block. Including template naming conventions.~~
 3. Create more blocks
     - Gallery
     - CTA Banners (left/right content options)
