@@ -1,6 +1,6 @@
-## Setup
-
 Make sure you have [Elemental](https://github.com/dnadesign/silverstripe-elemental) and [Elemental-List](https://github.com/dnadesign/silverstripe-elemental-list) installed prior to moving on to the next section.
+
+## Setup
 
 Steps to install this on your SilverStripe:
 
@@ -18,6 +18,8 @@ Steps to install this on your SilverStripe:
 ## Creating Templates
 
 Within the project's `templates` folder create a `EvansHunt/Elements` folder. Inside this folder will be all the `.ss` files related to each element.
+
+[ContentElement](/docs/templating/contentelement.md)
 
 ### To Do's
 
