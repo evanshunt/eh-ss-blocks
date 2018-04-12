@@ -1,3 +1,3 @@
 $Background
-<% if $ShowTitle %>$Title<% endif %>
+<% if $ShowTitle %>$Title<% end_if %>
 $Copy
