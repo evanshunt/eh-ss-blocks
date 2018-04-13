@@ -9,11 +9,11 @@
         <div class="carousel-item-left">
           <div class="carousel-item-image">$ImageLeft</div>
           <div class="carousel-item-title">$Title</div>
-          <div class="carousel-item-content">$Content</div>
+          <div class="carousel-item-content">$ContentLeft</div>
         </div>
         <div class="carousel-item-right">
           <div class="carousel-item-image">$ImageRight</div>
-          <div class="carousel-item-content">$AdditionalContent</div>
+          <div class="carousel-item-content">$ContentRight</div>
         </div>
       </div>
     <% end_loop %>

@@ -27,6 +27,10 @@ class Carousel extends BaseElement
     'CarouselItems' => CarouselItem::class
   ];
 
+  private static $cascade_deletes = [
+    'CarouselItems'
+  ];
+
 	public function getCMSFields()
   {
     $fields = parent::getCMSFields();
