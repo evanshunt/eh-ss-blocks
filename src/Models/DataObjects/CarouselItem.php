@@ -18,8 +18,8 @@ class CarouselItem extends DataObject {
 
   private static $db = [
     'Title' => 'Varchar(255)',
-    'Body' => 'HTMLText',
-    'AdditionalContent' => 'HTMLText',
+    'ContentLeft' => 'HTMLText',
+    'ContentRight' => 'HTMLText',
     'Sort' => 'Int'
   ];
 
@@ -41,8 +41,8 @@ class CarouselItem extends DataObject {
 
     $fields->addFieldsToTab('Root.Main',
       [
-        HTMLEditorField::create('Body')->setRows(5),
-        HTMLEditorField::create('AdditionalContent')->setRows(5),
+        HTMLEditorField::create('ContentLeft', 'Content Left')->setRows(5),
+        HTMLEditorField::create('ContentRight', 'Content Right')->setRows(5),
         $leftImageUpload = UploadField::create('ImageLeft', 'Left Image')->setDescription('Image that is displayed on the left (for desktop)'),
         $rightImageUpload = UploadField::create('ImageRight', 'Right Image')->setDescription('Image that is displayed on the right (for desktop)')
       ]
