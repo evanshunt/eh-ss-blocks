@@ -27,6 +27,8 @@ Within the project's `templates` folder create a `EvansHunt/Elements` folder. In
 
 [BucketElement](/docs/templating/bucket-element.md)
 
+[CarouselElement](/docs/templating/carousel-element.md)
+
 ### To Dos
 
 1. Introduce a new CTA module for elements to use.
