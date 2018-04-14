@@ -19,7 +19,7 @@ class CarouselElement extends BaseElement
 
   private static $description = 'Carousel block with multiple Carousel Items';
 
-  private static $table_name = 'BucketElement';
+  private static $table_name = 'CarouselElement';
 
   private static $db = [
     'Body' => 'HTMLText'
