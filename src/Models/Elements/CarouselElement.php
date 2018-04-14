@@ -9,7 +9,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
-class Carousel extends BaseElement
+class CarouselElement extends BaseElement
 {
   private static $icon = 'font-icon-picture';
 
@@ -18,6 +18,8 @@ class Carousel extends BaseElement
   private static $plural_name = 'Carousels';
 
   private static $description = 'Carousel block with multiple Carousel Items';
+
+  private static $table_name = 'BucketElement';
 
   private static $db = [
     'Body' => 'HTMLText'

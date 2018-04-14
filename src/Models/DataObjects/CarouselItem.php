@@ -13,7 +13,7 @@ class CarouselItem extends DataObject {
   private static $has_one = [
     'ImageLeft' => Image::class,
     'ImageRight' => Image::class,
-    'Parent' => Carousel::class
+    'Parent' => CarouselElement::class
   ];
 
   private static $db = [

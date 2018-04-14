@@ -26,9 +26,9 @@
 <% require css("//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css") %>
 
 <% if $CarouselItems.Count %>
-  <div class="element-carousel">
+  <div class="carousel-element">
     <%loop $CarouselItems %>
-      <div class="element-carousel-item carousel-item-$Pos">
+      <div class="carousel-item carousel-item-$Pos">
         <div class="carousel-item-left">
           <div class="carousel-item-image">$ImageLeft</div>
           <div class="carousel-item-title">$Title</div>
