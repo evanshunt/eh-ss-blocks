@@ -1,6 +1,3 @@
-
-test here: $slickOptionsJs
-
 <% if $CarouselItems.Count %>
   $loadCarouselRequirements
   <div class="carousel-element">

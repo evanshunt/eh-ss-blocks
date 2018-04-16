@@ -21,11 +21,8 @@
 
 ```html
 
-<% require javascript("//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js") %>
-<% require css("//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css") %>
-<% require css("//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css") %>
-
 <% if $CarouselItems.Count %>
+  $loadCarouselRequirements
   <div class="carousel-element">
     <%loop $CarouselItems %>
       <div class="carousel-item carousel-item-$Pos">
@@ -45,3 +42,14 @@
 
 ```
 
+### Slick configuration
+You can use slick configuration parameters within yml configuration file (see example below).
+All parameters should be supported: <a href="http://kenwheeler.github.io/slick#settings" target="_blank">http://kenwheeler.github.io/slick</a>
+
+```
+EvansHunt\Elements\CarouselElement:
+  slick_options:
+    autoplay: true
+    fade: true
+    speed: 100
+```

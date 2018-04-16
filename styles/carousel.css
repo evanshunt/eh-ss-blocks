@@ -4,7 +4,7 @@ div.carousel-element {
 }
 
 div.carousel-element .carousel-item {
-  border: 1px solid red;
+  max-width: 100%;
 }
 
 div.carousel-element .carousel-item .carousel-item-left, div.carousel-element .carousel-item .carousel-item-right {
