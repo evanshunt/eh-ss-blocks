@@ -15,8 +15,8 @@
     "extra": {
         "installer-name": "elemental-addons",
         "expose": [
-          "javascript",
-          "styles"
+          "js",
+          "css"
         ]
     }
 }
