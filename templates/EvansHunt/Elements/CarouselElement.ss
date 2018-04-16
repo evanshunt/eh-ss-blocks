@@ -19,11 +19,3 @@ test here: $slickOptionsJs
     <% end_loop %>
   </div>
 <% end_if %>
-
-<script>
-  var jq = jQuery.noConflict();
-  jq(document).ready(function(){
-  alert('here: ' + GLOBAL_SLICK_OPTIONS);
-    jq('.carousel-element').slick(GLOBAL_SLICK_OPTIONS);
-  });
-</script>

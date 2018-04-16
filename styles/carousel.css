@@ -1,0 +1,18 @@
+div.carousel-element {
+  max-width: 100%;
+  max-height: 500px;
+}
+
+div.carousel-element .carousel-item {
+  border: 1px solid red;
+}
+
+div.carousel-element .carousel-item .carousel-item-left, div.carousel-element .carousel-item .carousel-item-right {
+  display: inline-block;
+  max-width: 49%;
+}
+
+div.carousel-element .carousel-item .carousel-item-left img, div.carousel-element .carousel-item .carousel-item-right img {
+  max-width: 100%;
+}
+

@@ -74,9 +74,11 @@ class CarouselElement extends BaseElement
 
   public function loadCarouselRequirements() {
 
-    Requirements::javascript('//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js');
+    Requirements::javaScript('//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js');
+    Requirements::javaScript('evanshunt/elemental-addons:javascript/carousel-slick-init.js');
     Requirements::css('//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css');
     Requirements::css('//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css');
+    Requirements::css('evanshunt/elemental-addons:css/carousel.css');
     Requirements::customScript("var GLOBAL_SLICK_OPTIONS = " . $this->slickOptionsJs() . ";");
 
   }
