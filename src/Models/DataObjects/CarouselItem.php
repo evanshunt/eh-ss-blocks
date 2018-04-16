@@ -60,4 +60,9 @@ class CarouselItem extends DataObject {
 
     return $fields;
   }
+
+  private static $owns = [
+    'ImageLeft',
+    'ImageRight'
+  ];
 }
