@@ -1,7 +1,5 @@
-<% require javascript("//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js") %>
-<% require css("//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css") %>
-<% require css("//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css") %>
-<% require customScript("alert('custom-test');"); ?>
+
+test here: $slickOptionsJs
 
 <% if $CarouselItems.Count %>
   <div class="carousel-element">
@@ -24,6 +22,7 @@
 <script>
   var jq = jQuery.noConflict();
   jq(document).ready(function(){
+  alert(GLOBAL_SLICK_OPTIONS);
     jq('.carousel-element').slick({
       autoplay: true
     });

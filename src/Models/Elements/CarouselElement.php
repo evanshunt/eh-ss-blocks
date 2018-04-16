@@ -71,39 +71,4 @@ class CarouselElement extends BaseElement
     return $result;
   }
 
-  // function to get Slick configuration from yml file into slick JS file
-  // Exports Slim specific settings from YAML to JavaScript so that they can be easily used when initialising Slick
-  // Even if the validation fails, convert and return the options so that the developer can see from the output how the options come out.
-  // slick info: http://kenwheeler.github.io/slick/
-  public function slickOptionsJs() {
-    self::validate_slick_options();
-    return Convert::array2json(self::config()->get('slick_options'));
-  }
-
-  /**
-   * Just checks that the Slick configuration options in YAML is listed in a correct format without preceding dashes
-   * in option lines. Otherwise the options would render as nested arrays inside the settings array, which would render
-   * the options useless. Perhaps not very much needed check, but as I made this mistake once, I don't want to make
-   * it again without getting any notifications! :)
-   *
-   * WRONG:
-   * Carousel:
-   *   slick_options:
-   *     - autoplay: true
-   *     - autoplaySpeed: 3000
-   *
-   * CORRECT:
-   * Carousel:
-   *   slick_options:
-   *     autoplay: true
-   *     autoplaySpeed: 3000
-   */
-  private static function validate_slick_options()
-  {
-    $slick_options = self::config()->get('slick_options');
-    if (isset($slick_options[0])) {
-      user_error('Slick carousel options are defined in an incorrect format in YAML. Option lines should not be preceded with dashes.', E_USER_WARNING);
-    }
-  }
-
 }
