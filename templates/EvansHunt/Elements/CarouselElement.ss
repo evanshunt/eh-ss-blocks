@@ -2,6 +2,7 @@
 test here: $slickOptionsJs
 
 <% if $CarouselItems.Count %>
+  $loadCarouselRequirements
   <div class="carousel-element">
     <%loop $CarouselItems %>
       <div class="carousel-item carousel-item-$Pos">
@@ -22,9 +23,7 @@ test here: $slickOptionsJs
 <script>
   var jq = jQuery.noConflict();
   jq(document).ready(function(){
-  alert(GLOBAL_SLICK_OPTIONS);
-    jq('.carousel-element').slick({
-      autoplay: true
-    });
+  alert('here: ' + GLOBAL_SLICK_OPTIONS);
+    jq('.carousel-element').slick(GLOBAL_SLICK_OPTIONS);
   });
 </script>
