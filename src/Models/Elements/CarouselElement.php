@@ -60,4 +60,14 @@ class CarouselElement extends BaseElement
     return 'Carousel';
   }
 
+  // required fields: title
+  public function validate()
+  {
+    $result = parent::validate();
+    if (empty($this->Title)) {
+      $result->addError('Carousel Title is required field.');
+    }
+    return $result;
+  }
+
 }
