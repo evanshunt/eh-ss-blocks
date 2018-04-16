@@ -9,6 +9,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Core\Convert;
+use SilverStripe\View\Requirements;
 
 class CarouselElement extends BaseElement
 {
