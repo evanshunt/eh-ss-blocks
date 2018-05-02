@@ -1,6 +1,6 @@
 <% if $CarouselItems.Count %>
   $loadCarouselRequirements
-  <div class="carousel-element">
+  <div class="carousel-element clearfix">
     <%loop $CarouselItems %>
       <div class="carousel-item carousel-item-$Pos">
         <div class="carousel-item-left">
