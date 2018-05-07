@@ -14,5 +14,10 @@
     },
     "extra": {
         "installer-name": "elemental-addons"
+    },
+    "autoload": {
+        "psr-4": {
+            "EvansHunt\\Elements\\": "src/"
+        }
     }
 }

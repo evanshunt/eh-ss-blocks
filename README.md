@@ -12,8 +12,7 @@ Steps to install this on your SilverStripe:
         "url": "https://github.com/evanshunt/eh-ss-blocks"
       }]
     ```
-- Add `"evanshunt/elemental-addons": "dev-master"` to your `require` list.
-- Run `composer update --ignore-platform-reqs`.
+- From the `src` folder run `composer require evanshunt/elemental-addons --ignore-platform-reqs` to install package.
 
 ## Creating Templates
 
