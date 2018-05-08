@@ -13,11 +13,7 @@
         "dnadesign/silverstripe-elemental-list": "^1.0@dev"
     },
     "extra": {
-        "installer-name": "elemental-addons",
-        "expose": [
-            "js",
-            "css"
-          ]
+        "installer-name": "elemental-addons"
     },
     "autoload": {
         "psr-4": {
