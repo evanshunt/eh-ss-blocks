@@ -8,7 +8,3 @@ Page:
 DNADesign\Elemental\Models\BaseElement:
   allowed_elements:
     - EvansHunt\Elements\BucketElement
-
-EvansHunt\Elements\CarouselElement:
-  slick_options:
-    autoplay: true
