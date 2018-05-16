@@ -11,28 +11,28 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Core\Convert;
 use SilverStripe\View\Requirements;
 
-class CarouselElement extends BaseElement
+class ImageCarouselElement extends BaseElement
 {
   private static $icon = 'font-icon-picture';
 
-  private static $singular_name = 'Carousel';
+  private static $singular_name = 'Image Carousel';
 
-  private static $plural_name = 'Carousels';
+  private static $plural_name = 'Image Carousels';
 
   private static $description = 'Carousel block with multiple Carousel Items';
 
-  private static $table_name = 'CarouselElement';
+  private static $table_name = 'ImageCarouselElement';
 
   private static $db = [
     'Body' => 'HTMLText'
   ];
 
   private static $has_many = [
-    'CarouselItems' => CarouselItem::class
+    'ImageCarouselItems' => ImageCarouselItem::class
   ];
 
   private static $cascade_deletes = [
-    'CarouselItems'
+    'ImageCarouselItems'
   ];
 
   public function getCMSFields()
@@ -41,14 +41,14 @@ class CarouselElement extends BaseElement
 
     $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
     $fields->removeByName('Settings');
-    $fields->removeByName('CarouselItems');
+    $fields->removeByName('ImageCarouselItems');
 
     $fields->addFieldsToTab('Root.Main', Fieldlist::create(
       HTMLEditorField::create('Body')->setRows(10),
       GridField::create(
-        'CarouselItems',
+        'ImageCarouselItems',
         'Carousel items',
-        $this->CarouselItems(),
+        $this->ImageCarouselItems(),
         $gridConfig = GridFieldConfig_RecordEditor::create()
       )
     ));
@@ -59,7 +59,7 @@ class CarouselElement extends BaseElement
 
   public function getType()
   {
-    return 'Carousel';
+    return 'Image Carousel';
   }
 
   // required fields: title

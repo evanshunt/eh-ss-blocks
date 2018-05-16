@@ -8,11 +8,11 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
-class CarouselItem extends DataObject {
+class ImageCarouselItem extends DataObject {
 
   private static $has_one = [
     'SlideImage' => Image::class,
-    'Parent' => CarouselElement::class
+    'Parent' => ImageCarouselElement::class
   ];
 
   private static $db = [
@@ -25,13 +25,13 @@ class CarouselItem extends DataObject {
     'Title' => 'Title'
   ];
 
-  private static $singular_name = 'Carousel Item';
+  private static $singular_name = 'Image Carousel Item';
 
-  private static $plural_name = 'Carousel Items';
+  private static $plural_name = 'Image Carousel Items';
 
-  private static $description = 'Carousel Item Data Object';
+  private static $description = 'Image Carousel Item Data Object';
 
-  private static $table_name = 'CarouselItem';
+  private static $table_name = 'ImageCarouselItem';
 
   public function getCMSFields()
   {

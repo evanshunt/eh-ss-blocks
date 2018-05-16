@@ -2,14 +2,14 @@
 
 ### Template Convention:
 
-`EvansHunt/Elements/CarouselElement.ss`
+`EvansHunt/Elements/ImageCarouselElement.ss`
 
 ### Carousel Variables:
 
 - `$Title`: Carousel Element title
 - `$ShowTitle`: Is the title displayed or not?
 - `$Copy`: Carousel Element Copy
-- `$CarouselItems`: List of Carousel Items
+- `$ImageCarouselItems`: List of Carousel Items
 
 ### Carousel Item Variables:
 
@@ -22,7 +22,7 @@ You can use slick configuration parameters within yml configuration file (see ex
 All parameters should be supported: <a href="http://kenwheeler.github.io/slick#settings" target="_blank">http://kenwheeler.github.io/slick</a>
 
 ```
-EvansHunt\Elements\CarouselElement:
+EvansHunt\Elements\ImageCarouselElement:
   slick_options:
     fade: true
     speed: 100

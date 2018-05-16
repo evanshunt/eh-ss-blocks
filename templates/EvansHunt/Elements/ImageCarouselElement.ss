@@ -1,8 +1,8 @@
-<% if $CarouselItems.Count %>
+<% if $ImageCarouselItems.Count %>
   $loadCarouselRequirements
   <section class="image-carousel">
     <div class="carousel-items">
-      <% loop $CarouselItems %>
+      <% loop $ImageCarouselItems %>
         <div class="carousel-item carousel-item-$Pos">
           <div class="carousel-item-image">$SlideImage</div>
           <h3 class="carousel-item-title">$Title</h3>
