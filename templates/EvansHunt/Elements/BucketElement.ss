@@ -1,3 +1,3 @@
-    $Image
-    $Title
-    $Copy
+$Image
+<% if $ShowTitle %>$Title<% end_if %>
+$Copy
