@@ -28,6 +28,8 @@ Within the project's `templates` folder create a `EvansHunt/Elements` folder. In
 
 [CarouselElement](/docs/templating/carousel-element.md)
 
+[DocumentListElement](/docs/templating/document-list-element.md)
+
 ### To Dos
 
 1. Introduce a new CTA module for elements to use.
