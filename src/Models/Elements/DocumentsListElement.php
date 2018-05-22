@@ -3,7 +3,6 @@
 namespace EvansHunt\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
-use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\File;
