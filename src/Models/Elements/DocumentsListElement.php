@@ -6,6 +6,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\File;
+use SilverStripe\Forms\OptionsetField;
 
 class DocumentsListElement extends BaseElement
 {
@@ -15,12 +16,13 @@ class DocumentsListElement extends BaseElement
 
   private static $plural_name = 'Documents Lists';
 
-  private static $description = 'Documents list block with multiple Documents';
+  private static $description = 'Documents list block with multiple Documents (title + file)';
 
-  private static $table_name = 'DocumentsListElement';
+  private static $table_name = 'DocumentsElement';
 
   private static $db = [
-    'Content' => 'HTMLText'
+    'Content' => 'HTMLText',
+    'DisplayType' => "Enum('List, Icons')"
   ];
 
   private static $many_many = array(
@@ -44,6 +46,7 @@ class DocumentsListElement extends BaseElement
         HTMLEditorField::create('Content', 'Content')->setRows(10)
       ]
     );
+    $fields->addFieldToTab('Root.Main', OptionsetField::create('DisplayType', 'Display Type', ['List' => 'List - simple list of titles and links to documents', 'Icons' => 'Icons - medium size icons with links to documents'], 'List'));
 
     $documentUpload->getValidator()->setAllowedExtensions(['pdf', 'doc', 'xls', 'ppt']);
     $documentUpload->setAllowedFileCategories('document');

@@ -9,6 +9,7 @@
 - `$Title`: Document List Element title
 - `$ShowTitle`: Is the title displayed or not?
 - `$Content`: Document List Element Copy/Content
+- `$DisplayType`: Display type as List or Icons
 - `$DocumentFiles`: List of Document Files
 
 ### Document File Variables:
