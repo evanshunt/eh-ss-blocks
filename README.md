@@ -28,7 +28,7 @@ Within the project's `templates` folder create a `EvansHunt/Elements` folder. In
 
 [CarouselElement](/docs/templating/carousel-element.md)
 
-[DocumentListElement](/docs/templating/document-list-element.md)
+[DocumentsListElement](/docs/templating/documents-list-element.md)
 
 ### To Dos
 
