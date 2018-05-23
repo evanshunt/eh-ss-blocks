@@ -18,7 +18,7 @@ class DocumentsListElement extends BaseElement
 
   private static $description = 'Documents list block with multiple Documents (title + file)';
 
-  private static $table_name = 'DocumentsElement';
+  private static $table_name = 'DocumentsListElement';
 
   private static $db = [
     'Content' => 'HTMLText',
