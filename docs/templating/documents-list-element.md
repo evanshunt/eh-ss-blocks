@@ -20,8 +20,8 @@
 - `$Size`: File size
 
 ### Read more CTA LinkItem
-
+```
 <% with ReadMoreLink %>
   <a href="$Link" target="$Target">$Title</a>
 <% end_with %>
-
+```
