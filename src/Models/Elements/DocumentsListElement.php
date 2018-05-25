@@ -7,6 +7,8 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\File;
 use SilverStripe\Forms\OptionsetField;
+use EvansHunt\LinkItemField\Model\LinkItem;
+use EvansHunt\LinkItemField\Forms\LinkItemField;
 
 class DocumentsListElement extends BaseElement
 {
@@ -25,11 +27,19 @@ class DocumentsListElement extends BaseElement
     'DisplayType' => "Enum('List, Icons')"
   ];
 
-  private static $many_many = array(
+  private static $has_one = [
+    'RadMoreLink' => LinkItem::class
+  ];
+
+  private static $many_many = [
     'DocumentFiles' => File::Class
-  );
+  ];
 
   private static $cascade_deletes = [
+    'DocumentFiles'
+  ];
+
+  private static $owns = [
     'DocumentFiles'
   ];
 
@@ -43,7 +53,8 @@ class DocumentsListElement extends BaseElement
     $fields->addFieldsToTab('Root.Main',
       [
         $documentUpload = UploadField::create('DocumentFiles', 'Documents')->setDescription('Upload one or more document files. Documents will be shown in alphabetical order.'),
-        HTMLEditorField::create('Content', 'Content')->setRows(10)
+        HTMLEditorField::create('Content', 'Content')->setRows(10),
+        LinkItemField::create('RadMorelink', 'Read More Link')
       ]
     );
     $fields->addFieldToTab('Root.Main', OptionsetField::create('DisplayType', 'Display Type', ['List' => 'List - simple list of titles and links to documents', 'Icons' => 'Icons - medium size icons with links to documents'], 'List'));
