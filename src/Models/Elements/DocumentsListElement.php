@@ -28,7 +28,7 @@ class DocumentsListElement extends BaseElement
   ];
 
   private static $has_one = [
-    'RadMoreLink' => LinkItem::class
+    'ReadMoreLink' => LinkItem::class
   ];
 
   private static $many_many = [
@@ -49,15 +49,16 @@ class DocumentsListElement extends BaseElement
 
     $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
     $fields->removeByName('Settings');
+    $fields->removeByName('DocumentFiles');
 
     $fields->addFieldsToTab('Root.Main',
       [
         $documentUpload = UploadField::create('DocumentFiles', 'Documents')->setDescription('Upload one or more document files. Documents will be shown in alphabetical order.'),
-        HTMLEditorField::create('Content', 'Content')->setRows(10),
-        LinkItemField::create('RadMorelink', 'Read More Link')
+        HTMLEditorField::create('Content', 'Content')->setRows(10)
       ]
     );
     $fields->addFieldToTab('Root.Main', OptionsetField::create('DisplayType', 'Display Type', ['List' => 'List - simple list of titles and links to documents', 'Icons' => 'Icons - medium size icons with links to documents'], 'List'));
+    $fields->addFieldToTab('Root.Main', LinkItemField::create('ReadMoreLinkID', 'Read More Link'));
 
     $documentUpload->getValidator()->setAllowedExtensions(['pdf', 'doc', 'xls', 'ppt']);
     $documentUpload->setAllowedFileCategories('document');
