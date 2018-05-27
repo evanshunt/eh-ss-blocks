@@ -26,6 +26,8 @@ Within the project's `templates` folder create a `EvansHunt/Elements` folder. In
 
 [BucketElement](/docs/templating/bucket-element.md)
 
+[BucketsListElement](/docs/templating/buckets-list-element.md)
+
 [CarouselElement](/docs/templating/carousel-element.md)
 
 [DocumentsListElement](/docs/templating/documents-list-element.md)
