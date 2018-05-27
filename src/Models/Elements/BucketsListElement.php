@@ -13,7 +13,7 @@ class BucketsListElement extends ElementList
     'BackgroundClass' => 'Varchar'
   ];
 
-  private static $table_name = 'BucketsList';
+  private static $table_name = 'BucketsListElement';
 
   private static $description = 'Orderable list of bucket elements';
 
@@ -33,11 +33,7 @@ class BucketsListElement extends ElementList
     $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
     $fields->removeByName('Settings');
 
-    $fields->addFieldsToTab('Root.Main',
-      [
-        HTMLEditorField::create('Content', 'Content')->setRows(10)
-      ]
-    );
+    $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content', 'Content')->setRows(10));
 
     // look at yml config to see if we want to have options for background class/colour when editing the list
     // EvansHunt\Elements\BucketsListElement and background with multiple options
