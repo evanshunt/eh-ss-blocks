@@ -4,6 +4,7 @@ namespace EvansHunt\Elements;
 
 use DNADesign\ElementalList\Model\ElementList;
 use SilverStripe\Forms\OptionsetField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class BucketsListElement extends ElementList
 {
