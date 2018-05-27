@@ -2,9 +2,10 @@
 
 namespace EvansHunt\Elements;
 
-use DNADesign\ElementalList\Model\ElementList;
+use SilverStripe\Core\Convert;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use DNADesign\ElementalList\Model\ElementList;
 
 class BucketsListElement extends ElementList
 {
@@ -33,7 +34,7 @@ class BucketsListElement extends ElementList
     $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
     $fields->removeByName('Settings');
 
-    $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content', 'Content')->setRows(10));
+    $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content', 'Content')->setRows(10), 'Content');
 
     // look at yml config to see if we want to have options for background class/colour when editing the list
     // EvansHunt\Elements\BucketsListElement and background with multiple options
@@ -42,7 +43,7 @@ class BucketsListElement extends ElementList
       $default = $bgOptions[0];
       $bgOptions = array_combine($bgOptions, $bgOptions);
 
-      $fields->addFieldToTab('Root.Main', OptionsetField::create('BackgroundClass', 'Background Colour/Class', $bgOptions, $default));
+      $fields->addFieldToTab('Root.Main', OptionsetField::create('BackgroundClass', 'Background Colour/Class', $bgOptions, $default), 'Content');
     } else {
       $fields->removeByName('BackgroundClass');
     } // end if
@@ -58,5 +59,12 @@ class BucketsListElement extends ElementList
       $result->addError('Title is required field.');
     }
     return $result;
+  }
+
+  public function BackgroundClass() {
+    $className = strtolower($this->BackgroundClass);
+    $className = str_replace(' ', '-', $className);
+    $className = Convert::raw2htmlid($className);
+    return $className;
   }
 }
