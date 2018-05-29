@@ -3,6 +3,7 @@ Page:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
   disallowed_elements:
     - DNADesign\Elemental\Models\ElementContent
+    - DNADesign\ElementalList\Model\ElementList
     - EvansHunt\Elements\BucketElement
 
 DNADesign\Elemental\Models\BaseElement:
