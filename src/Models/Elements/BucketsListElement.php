@@ -11,7 +11,8 @@ class BucketsListElement extends ElementList
 {
   private static $db = [
     'Content' => 'HTMLText',
-    'BackgroundClass' => 'Varchar'
+    'BackgroundClass' => 'Varchar',
+    'BucketsAlign' => "Enum('Left, Center')"
   ];
 
   private static $table_name = 'BucketsListElement';
@@ -48,6 +49,8 @@ class BucketsListElement extends ElementList
       $fields->removeByName('BackgroundClass');
     } // end if
 
+    $fields->addFieldToTab('Root.Main', OptionsetField::create('BucketsAlign', 'Buckets Content Alignment', ['Left' => 'Left', 'Center' => 'Center'], 'Left'), 'Content');
+
     return $fields;
   }
 
@@ -66,5 +69,12 @@ class BucketsListElement extends ElementList
     $className = str_replace(' ', '-', $className);
     $className = Convert::raw2htmlid($className);
     return $className;
+  }
+
+  public function BucketsAlign() {
+    $alignment = strtolower($this->BucketsAlign);
+    $alignment = str_replace(' ', '-', $alignment);
+    $alignment = Convert::raw2htmlid($alignment);
+    return $alignment;
   }
 }

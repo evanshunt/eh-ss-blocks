@@ -14,6 +14,7 @@ This element list is only holding buckets elements at this time.
 - `$ShowTitle`: Is the title displayed or not?
 - `$Content`: Buckets List Element Copy/Content
 - `$BackgroundClass`: Background class name from yml configuration - lowercase
+- `$BucketsAlign`: Elements wrapper class/alignment name for buckets content (left/center)
 - `$Elements`: Child elements, buckets
 
 ### BackgroundClass configuration in application elements.yml file:
