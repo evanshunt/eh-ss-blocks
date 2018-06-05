@@ -1,4 +1,4 @@
-## Carousel Element Block with Carousel Items
+## Image Carousel Element Block with Carousel Items
 
 ### Template Convention:
 
@@ -23,7 +23,7 @@ All parameters should be supported: <a href="http://kenwheeler.github.io/slick#s
 
 ```
 EvansHunt\Elements\ImageCarouselElement:
-  slick_options:
+  image_carousel_options:
     fade: true
     speed: 100
 ```

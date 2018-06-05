@@ -78,7 +78,7 @@ class ImageCarouselElement extends BaseElement
     Requirements::javaScript('evanshunt/elemental-addons:js/carousel-slick-init.js');
     Requirements::css('//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css');
     Requirements::css('//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css');
-    Requirements::customScript("var GLOBAL_SLICK_OPTIONS = " . $this->slickOptionsJs() . ";");
+    Requirements::customScript("var GLOBAL_IMGCAROUSEL_OPTIONS = " . $this->slickOptionsJs() . ";");
   }
 
   // function to get Slick configuration from yml file into slick JS file
@@ -86,8 +86,8 @@ class ImageCarouselElement extends BaseElement
   // Even if the validation fails, convert and return the options so that the developer can see from the output how the options come out.
   // slick info: http://kenwheeler.github.io/slick/
   public function slickOptionsJs() {
-    self::validate_slick_options();
-    return Convert::array2json(self::config()->get('slick_options'));
+    self::validate_image_carousel_options();
+    return Convert::array2json(self::config()->get('image_carousel_options'));
   }
 
   /**
@@ -98,20 +98,20 @@ class ImageCarouselElement extends BaseElement
    *
    * WRONG:
    * Carousel:
-   *   slick_options:
+   *   image_carousel_options:
    *     - autoplay: true
    *     - autoplaySpeed: 3000
    *
    * CORRECT:
    * Carousel:
-   *   slick_options:
+   *   image_carousel_options:
    *     autoplay: true
    *     autoplaySpeed: 3000
    */
-  private static function validate_slick_options()
+  private static function validate_image_carousel_options()
   {
-    $slick_options = self::config()->get('slick_options');
-    if (isset($slick_options[0])) {
+    $image_carousel_options = self::config()->get('image_carousel_options');
+    if (isset($image_carousel_options[0])) {
       user_error('Slick carousel options are defined in an incorrect format in YAML. Option lines should not be preceded with dashes.', E_USER_WARNING);
     }
   }
