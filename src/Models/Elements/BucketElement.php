@@ -18,8 +18,8 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image_Backend;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-// use CyberDuck\LinkItemField\Forms\LinkItemField;
-// use CyberDuck\LinkItemField\Model\LinkItem;
+use EvansHunt\LinkItemField\Forms\LinkItemField;
+use EvansHunt\LinkItemField\Model\LinkItem;
 
 class BucketElement extends BaseElement
 {
@@ -28,8 +28,8 @@ class BucketElement extends BaseElement
     ];
 
     private static $has_one = [
-        'Image' => Image::class/*,
-        'CTA' => LinkItem::class*/
+        'Image' => Image::class,
+        'CTALink' => LinkItem::class
     ];
 
     private static $owns = [
@@ -53,8 +53,8 @@ class BucketElement extends BaseElement
 
         $fields->addFieldsToTab('Root.Main', [
             $imageUpload = UploadField::create('Image', 'Image')->setDescription('Optional image that appears at the top of the bucket'),
-            HtmlEditorField::create('Copy', 'Copy')/*,
-            LinkItemField::create('CTAID', 'Call To Action')*/
+            HtmlEditorField::create('Copy', 'Copy'),
+            LinkItemField::create('CTALinkID', 'Call To Action')
         ]);
 
         $imageUpload->getValidator()->setAllowedExtensions(array(
@@ -68,37 +68,5 @@ class BucketElement extends BaseElement
     public function getType()
     {
         return 'Bucket';
-    }
-
-     /**
-     * For the frontend, return a parsed set of data for use in templates
-     *
-     * @return ArrayData|null
-     */
-    public function CallToActionLink()
-    {
-        return $this->decodeLinkData($this->getField('CallToActionLink'));
-    }
-
-    /**
-     * Given a set of JSON data, decode it, attach the relevant Page object and return as ArrayData
-     *
-     * @param string $linkJson
-     * @return ArrayData|null
-     */
-    protected function decodeLinkData($linkJson)
-    {
-        if (!$linkJson || $linkJson === 'null') {
-            return;
-        }
-
-        $data = ArrayData::create(Convert::json2obj($linkJson));
-
-        // Link page, if selected
-        if ($data->PageID) {
-            $data->setField('Page', self::get_by_id(SiteTree::class, $data->PageID));
-        }
-
-        return $data;
     }
 }
