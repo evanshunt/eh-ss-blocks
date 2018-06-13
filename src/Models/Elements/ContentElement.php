@@ -25,7 +25,7 @@ class ContentElement extends BaseElement
 {
     private static $db = [
         'Copy' => 'HTMLText',
-        'Class' => 'VarChar'
+        'Class' => 'Varchar'
     ];
 
     private static $has_one = [
