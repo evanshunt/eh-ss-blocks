@@ -24,7 +24,8 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 class ContentElement extends BaseElement
 {
     private static $db = [
-        'Copy' => 'HTMLText'
+        'Copy' => 'HTMLText',
+        'Class' => 'VarChar'
     ];
 
     private static $has_one = [
@@ -51,7 +52,9 @@ class ContentElement extends BaseElement
         $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
         $fields->removeByName('Settings');
 
-        // $fields->addFieldToTab('Root.Main', LinkItemField::create('CTAID', 'Call To Action'));
+        $fields->addFieldsToTab('Root.Main', [
+            TextField::create('Class', 'Class')
+        ]);
 
         $fields->addFieldsToTab('Root.Main', [
             HtmlEditorField::create('Copy', 'Copy'),
