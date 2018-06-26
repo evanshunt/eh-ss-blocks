@@ -9,7 +9,7 @@
     "require": {
         "silverstripe/cms": "^4",
         "silverstripe/framework": "^4",
-        "dnadesign/silverstripe-elemental": "*",
+        "dnadesign/silverstripe-elemental": "^2",
         "dnadesign/silverstripe-elemental-list": "*"
     },
     "extra": {
