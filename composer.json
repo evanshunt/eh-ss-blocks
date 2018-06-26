@@ -9,8 +9,8 @@
     "require": {
         "silverstripe/cms": "^4",
         "silverstripe/framework": "^4",
-        "dnadesign/silverstripe-elemental": "2.x-dev",
-        "dnadesign/silverstripe-elemental-list": "^1.0@dev"
+        "dnadesign/silverstripe-elemental": "^2",
+        "dnadesign/silverstripe-elemental-list": "*"
     },
     "extra": {
         "installer-name": "elemental-addons",
