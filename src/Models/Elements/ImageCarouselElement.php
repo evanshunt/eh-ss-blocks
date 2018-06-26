@@ -35,6 +35,10 @@ class ImageCarouselElement extends BaseElement
     'ImageCarouselItems'
   ];
 
+  private static $cascade_duplicates = [
+    'ImageCarouselItems'
+  ];
+
   public function getCMSFields()
   {
     $fields = parent::getCMSFields();

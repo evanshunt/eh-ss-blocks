@@ -39,6 +39,10 @@ class DocumentsListElement extends BaseElement
     'DocumentFiles'
   ];
 
+  private static $cascade_duplicates = [
+      'DocumentFiles'
+  ];
+
   private static $owns = [
     'DocumentFiles'
   ];
