@@ -1,8 +1,0 @@
-fr:
-  DNADesign\ElementalList\Model\ElementList:
-    BlockType: Liste
-    PLURALNAME: listes
-    PLURALS:
-      one: 'Une liste'
-      other: '{count} listes'
-    SINGULARNAME: liste
