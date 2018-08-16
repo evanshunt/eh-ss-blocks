@@ -1,0 +1,12 @@
+---
+Name: cmsextensions
+---
+SilverStripe\Admin\LeftAndMain:
+  extensions:
+    - SilverStripe\CMS\Controllers\LeftAndMainPageIconsExtension
+---
+Name: cmsmodals
+---
+SilverStripe\Admin\ModalController:
+  extensions:
+    - SilverStripe\CMS\Forms\InternalLinkModalExtension

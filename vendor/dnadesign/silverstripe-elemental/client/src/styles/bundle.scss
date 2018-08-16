@@ -1,0 +1,11 @@
+// Core variables
+@import "variables";
+
+// Thirdparty
+@import "~bootstrap/scss/mixins";
+
+// Elemental components
+@import "admin";
+@import "history";
+@import "reports";
+@import "textcheckboxgroup";

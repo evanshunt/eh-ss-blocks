@@ -1,0 +1,13 @@
+---
+Name: versionedadmincmsconfig
+Only:
+  moduleexists: silverstripe/cms
+---
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\CMS\Controllers\CMSPageHistoryController:
+    factory:
+      SilverStripe\VersionedAdmin\Controllers\HistoryControllerFactory
+
+SilverStripe\CMS\Controllers\CMSMain:
+  extensions:
+    - SilverStripe\VersionedAdmin\Extensions\CMSMainExtension
