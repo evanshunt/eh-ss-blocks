@@ -9,6 +9,7 @@ use SilverStripe\Assets\File;
 use SilverStripe\Forms\OptionsetField;
 use EvansHunt\LinkItemField\Model\LinkItem;
 use EvansHunt\LinkItemField\Forms\LinkItemField;
+use Bummzack\SortableFile\Forms\SortableUploadField;
 
 class DocumentsListElement extends BaseElement
 {
@@ -35,6 +36,10 @@ class DocumentsListElement extends BaseElement
     'DocumentFiles' => File::Class
   ];
 
+  private static $many_many_extraFields = [
+    'DocumentFiles' => ['SortOrder' => 'Int']
+  ];
+
   private static $cascade_deletes = [
     'DocumentFiles'
   ];
@@ -57,7 +62,7 @@ class DocumentsListElement extends BaseElement
 
     $fields->addFieldsToTab('Root.Main',
       [
-        $documentUpload = UploadField::create('DocumentFiles', 'Documents')->setDescription('Upload one or more document files. Documents will be shown in alphabetical order.'),
+        $documentUpload = SortableUploadField::create('DocumentFiles', 'Documents')->setDescription('Upload one or more documents'),
         HTMLEditorField::create('Content', 'Content')->setRows(10)
       ]
     );
@@ -85,5 +90,5 @@ class DocumentsListElement extends BaseElement
     }
     return $result;
   }
-  
+
 }
