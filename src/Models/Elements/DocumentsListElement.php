@@ -11,9 +11,16 @@ use EvansHunt\LinkItemField\Model\LinkItem;
 use EvansHunt\LinkItemField\Forms\LinkItemField;
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Security\Permission;
 
 class DocumentsListElement extends BaseElement
 {
+
+  public function canView($member = null)
+  {
+    return true;
+  }
+
   private static $icon = 'font-icon-block-file-list';
 
   private static $singular_name = 'Documents List';
@@ -57,7 +64,7 @@ class DocumentsListElement extends BaseElement
   ];
 
   private static $extensions = [
-    Versioned::class . '.versioned'
+    Versioned::class;
   ];
 
   public function getCMSFields()

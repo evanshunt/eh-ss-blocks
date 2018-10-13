@@ -7,9 +7,16 @@ use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use DNADesign\ElementalList\Model\ElementList;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Security\Permission;
 
 class BucketsListElement extends ElementList
 {
+
+  public function canView($member = null)
+  {
+    return true;
+  }
+
   private static $db = [
     'Content' => 'HTMLText',
     'BackgroundClass' => 'Varchar',
@@ -17,7 +24,7 @@ class BucketsListElement extends ElementList
   ];
 
   private static $extensions = [
-    Versioned::class . '.versioned'
+    Versioned::class;
   ];
 
   private static $table_name = 'BucketsListElement';

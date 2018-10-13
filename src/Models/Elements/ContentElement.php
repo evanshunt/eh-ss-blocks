@@ -19,9 +19,16 @@ use SilverStripe\Assets\Image_Backend;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Security\Permission;
 
 class ContentElement extends BaseElement
 {
+
+    public function canView($member = null)
+    {
+        return true;
+    }
+
     private static $db = [
         'Copy' => 'HTMLText',
         'Class' => 'Varchar'
@@ -45,7 +52,7 @@ class ContentElement extends BaseElement
     ];
 
     private static $extensions = [
-        Versioned::class . '.versioned'
+        Versioned::class;
     ];
 
     private static $singular_name = 'Content';

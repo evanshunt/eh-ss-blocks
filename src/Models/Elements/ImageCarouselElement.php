@@ -11,9 +11,16 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Core\Convert;
 use SilverStripe\View\Requirements;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Security\Permission;
 
 class ImageCarouselElement extends BaseElement
 {
+
+  public function canView($member = null)
+  {
+    return true;
+  }
+
   private static $icon = 'font-icon-picture';
 
   private static $singular_name = 'Image Carousel';
@@ -45,7 +52,7 @@ class ImageCarouselElement extends BaseElement
   ];
 
   private static $extensions = [
-    Versioned::class . '.versioned'
+    Versioned::class;
   ];
 
   public function getCMSFields()

@@ -21,9 +21,15 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 use EvansHunt\LinkItemField\Forms\LinkItemField;
 use EvansHunt\LinkItemField\Model\LinkItem;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Security\Permission;
 
 class BucketElement extends BaseElement
 {
+    public function canView($member = null)
+    {
+        return true;
+    }
+
     private static $db = [
         'Copy' => 'HTMLText'
     ];
@@ -46,7 +52,7 @@ class BucketElement extends BaseElement
     ];
 
     private static $extensions = [
-        Versioned::class . '.versioned'
+        Versioned::class;
     ];
 
     private static $singular_name = 'Bucket';

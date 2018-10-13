@@ -8,9 +8,16 @@ use SilverStripe\Forms\TabSet;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Security\Permission;
 
 class ImageElement extends BaseElement
 {
+
+    public function canView($member = null)
+    {
+        return true;
+    }
+
     private static $db = [
 
     ];
@@ -32,7 +39,7 @@ class ImageElement extends BaseElement
     ];
 
     private static $extensions = [
-        Versioned::class . '.versioned'
+        Versioned::class;
     ];
 
     private static $singular_name = 'Image';

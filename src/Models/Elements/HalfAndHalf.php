@@ -21,9 +21,16 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 use EvansHunt\LinkItemField\Forms\LinkItemField;
 use EvansHunt\LinkItemField\Model\LinkItem;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Security\Permission;
 
 class HalfAndHalfElement extends BaseElement
 {
+
+    public function canView($member = null)
+    {
+        return true;
+    }
+
     private static $db = [
         'LeftTitle' => 'Varchar',
         'LeftCopy' => 'HTMLText',
@@ -60,7 +67,7 @@ class HalfAndHalfElement extends BaseElement
     ];
 
     private static $extensions = [
-        Versioned::class . '.versioned'
+        Versioned::class;
     ];
 
     private static $singular_name = 'Half and Half';

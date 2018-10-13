@@ -8,8 +8,14 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Security\Permission;
 
 class ImageCarouselItem extends DataObject {
+
+  public function canView($member = null)
+  {
+    return true;
+  }
 
   private static $has_one = [
     'SlideImage' => Image::class,
@@ -35,7 +41,7 @@ class ImageCarouselItem extends DataObject {
   ];
 
   private static $extensions = [
-    Versioned::class . '.versioned'
+    Versioned::class;
   ];
 
   private static $summary_fields = [
