@@ -52,7 +52,7 @@ class ImageCarouselElement extends BaseElement
   ];
 
   private static $extensions = [
-    Versioned::class;
+    Versioned::class
   ];
 
   public function getCMSFields()

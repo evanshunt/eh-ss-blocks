@@ -67,7 +67,7 @@ class HalfAndHalfElement extends BaseElement
     ];
 
     private static $extensions = [
-        Versioned::class;
+        Versioned::class
     ];
 
     private static $singular_name = 'Half and Half';

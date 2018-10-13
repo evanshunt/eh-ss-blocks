@@ -41,7 +41,7 @@ class ImageCarouselItem extends DataObject {
   ];
 
   private static $extensions = [
-    Versioned::class;
+    Versioned::class
   ];
 
   private static $summary_fields = [

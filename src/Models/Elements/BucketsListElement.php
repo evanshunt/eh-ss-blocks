@@ -24,7 +24,7 @@ class BucketsListElement extends ElementList
   ];
 
   private static $extensions = [
-    Versioned::class;
+    Versioned::class
   ];
 
   private static $table_name = 'BucketsListElement';
