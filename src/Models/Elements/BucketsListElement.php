@@ -6,6 +6,7 @@ use SilverStripe\Core\Convert;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use DNADesign\ElementalList\Model\ElementList;
+use SilverStripe\Versioned\Versioned;
 
 class BucketsListElement extends ElementList
 {
@@ -13,6 +14,10 @@ class BucketsListElement extends ElementList
     'Content' => 'HTMLText',
     'BackgroundClass' => 'Varchar',
     'BucketsAlign' => "Enum('Left, Center')"
+  ];
+
+  private static $extensions = [
+    Versioned::class . '.versioned'
   ];
 
   private static $table_name = 'BucketsListElement';

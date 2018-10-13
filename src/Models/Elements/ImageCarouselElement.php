@@ -10,6 +10,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Core\Convert;
 use SilverStripe\View\Requirements;
+use SilverStripe\Versioned\Versioned;
 
 class ImageCarouselElement extends BaseElement
 {
@@ -31,12 +32,20 @@ class ImageCarouselElement extends BaseElement
     'ImageCarouselItems' => ImageCarouselItem::class
   ];
 
+  private static $owns = [
+    'ImageCarouselItems'
+  ];
+
   private static $cascade_deletes = [
     'ImageCarouselItems'
   ];
 
   private static $cascade_duplicates = [
     'ImageCarouselItems'
+  ];
+
+  private static $extensions = [
+    Versioned::class . '.versioned'
   ];
 
   public function getCMSFields()

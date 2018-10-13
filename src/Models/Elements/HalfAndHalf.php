@@ -20,6 +20,7 @@ use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use EvansHunt\LinkItemField\Forms\LinkItemField;
 use EvansHunt\LinkItemField\Model\LinkItem;
+use SilverStripe\Versioned\Versioned;
 
 class HalfAndHalfElement extends BaseElement
 {
@@ -35,6 +36,31 @@ class HalfAndHalfElement extends BaseElement
         'LeftCTA' => LinkItem::class,
         'RightBackground' => Image::class,
         'RightCTA' => LinkItem::class
+    ];
+
+    private static $owns = [
+        'LeftBackground',
+        'RightBackground',
+        'LeftCTA',
+        'RightCTA'
+    ];
+
+    private static $cascade_deletes = [
+        'LeftBackground',
+        'RightBackground',
+        'LeftCTA',
+        'RightCTA'
+    ];
+
+    private static $cascade_duplicates = [
+        'LeftBackground',
+        'RightBackground',
+        'LeftCTA',
+        'RightCTA'
+    ];
+
+    private static $extensions = [
+        Versioned::class . '.versioned'
     ];
 
     private static $singular_name = 'Half and Half';
@@ -78,11 +104,6 @@ class HalfAndHalfElement extends BaseElement
 
         return $fields;
     }
-
-    private static $owns = [
-        'LeftBackground',
-        'RightBackground'
-    ];
 
     public function getType()
     {

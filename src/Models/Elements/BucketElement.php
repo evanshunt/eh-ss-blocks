@@ -20,6 +20,7 @@ use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use EvansHunt\LinkItemField\Forms\LinkItemField;
 use EvansHunt\LinkItemField\Model\LinkItem;
+use SilverStripe\Versioned\Versioned;
 
 class BucketElement extends BaseElement
 {
@@ -34,6 +35,18 @@ class BucketElement extends BaseElement
 
     private static $owns = [
         'Image'
+    ];
+
+    private static $cascade_deletes = [
+        'Image'
+    ];
+
+    private static $cascade_duplicates = [
+        'Image'
+    ];
+
+    private static $extensions = [
+        Versioned::class . '.versioned'
     ];
 
     private static $singular_name = 'Bucket';

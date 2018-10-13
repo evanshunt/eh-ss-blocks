@@ -18,8 +18,7 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image_Backend;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-// use CyberDuck\LinkItemField\Forms\LinkItemField;
-// use CyberDuck\LinkItemField\Model\LinkItem;
+use SilverStripe\Versioned\Versioned;
 
 class ContentElement extends BaseElement
 {
@@ -35,6 +34,18 @@ class ContentElement extends BaseElement
 
     private static $owns = [
         'Background'
+    ];
+
+    private static $cascade_deletes = [
+        'Background'
+    ];
+
+    private static $cascade_duplicates = [
+        'Background'
+    ];
+
+    private static $extensions = [
+        Versioned::class . '.versioned'
     ];
 
     private static $singular_name = 'Content';

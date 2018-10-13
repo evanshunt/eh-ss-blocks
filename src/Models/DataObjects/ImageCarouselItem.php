@@ -7,6 +7,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Versioned\Versioned;
 
 class ImageCarouselItem extends DataObject {
 
@@ -19,6 +20,22 @@ class ImageCarouselItem extends DataObject {
     'Title' => 'Varchar(255)',
     'Content' => 'HTMLText',
     'Sort' => 'Int'
+  ];
+
+  private static $owns = [
+    'SlideImage'
+  ];
+
+  private static $cascade_deletes = [
+    'SlideImage'
+  ];
+
+  private static $cascade_duplicates = [
+    'SlideImage'
+  ];
+
+  private static $extensions = [
+    Versioned::class . '.versioned'
   ];
 
   private static $summary_fields = [
@@ -53,7 +70,4 @@ class ImageCarouselItem extends DataObject {
     return $fields;
   }
 
-  private static $owns = [
-    'SlideImage'
-  ];
 }

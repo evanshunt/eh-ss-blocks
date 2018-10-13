@@ -7,6 +7,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TabSet;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Versioned\Versioned;
 
 class ImageElement extends BaseElement
 {
@@ -20,6 +21,18 @@ class ImageElement extends BaseElement
 
     private static $owns = [
         'Image'
+    ];
+
+    private static $cascade_deletes = [
+        'Image'
+    ];
+
+    private static $cascade_duplicates = [
+        'Image'
+    ];
+
+    private static $extensions = [
+        Versioned::class . '.versioned'
     ];
 
     private static $singular_name = 'Image';

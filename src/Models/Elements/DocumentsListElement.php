@@ -10,6 +10,7 @@ use SilverStripe\Forms\OptionsetField;
 use EvansHunt\LinkItemField\Model\LinkItem;
 use EvansHunt\LinkItemField\Forms\LinkItemField;
 use Bummzack\SortableFile\Forms\SortableUploadField;
+use SilverStripe\Versioned\Versioned;
 
 class DocumentsListElement extends BaseElement
 {
@@ -41,15 +42,22 @@ class DocumentsListElement extends BaseElement
   ];
 
   private static $cascade_deletes = [
-    'DocumentFiles'
+      'ReadMoreLink',
+      'DocumentFiles'
   ];
 
   private static $cascade_duplicates = [
+      'ReadMoreLink',
       'DocumentFiles'
   ];
 
   private static $owns = [
+    'ReadMoreLink',
     'DocumentFiles'
+  ];
+
+  private static $extensions = [
+    Versioned::class . '.versioned'
   ];
 
   public function getCMSFields()
