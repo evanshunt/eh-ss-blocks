@@ -40,15 +40,18 @@ class BucketElement extends BaseElement
     ];
 
     private static $owns = [
-        'Image'
+        'Image',
+        'CTALink'
     ];
 
     private static $cascade_deletes = [
-        'Image'
+        'Image',
+        'CTALink'
     ];
 
     private static $cascade_duplicates = [
-        'Image'
+        'Image',
+        'CTALink'
     ];
 
     private static $extensions = [
