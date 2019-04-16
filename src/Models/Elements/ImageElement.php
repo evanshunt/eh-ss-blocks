@@ -1,78 +1,71 @@
 <?php
 
-namespace EvansHunt\Elements;
+namespace EvansHunt\Elements {
 
-use DNADesign\Elemental\Models\BaseElement;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\TabSet;
-use SilverStripe\Assets\Image;
-use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\Versioned\Versioned;
-use SilverStripe\Security\Permission;
+    use DNADesign\Elemental\Models\BaseElement;
+    use SilverStripe\Forms\FieldList;
+    use SilverStripe\Forms\TabSet;
+    use SilverStripe\Assets\Image;
+    use SilverStripe\AssetAdmin\Forms\UploadField;
+    use SilverStripe\Versioned\Versioned;
+    use SilverStripe\Security\Permission;
 
-class ImageElement extends BaseElement
-{
+    class ImageElement extends BaseElement {
 
-    public function canView($member = null)
-    {
-        return true;
-    }
+        public function canView($member = null) {
+            return true;
+        }
 
-    private static $db = [
+        private static $db = [];
 
-    ];
+        private static $has_one = [
+            'Image' => Image::class
+        ];
 
-    private static $has_one = [
-        'Image' => Image::class
-    ];
+        private static $owns = [
+            'Image'
+        ];
 
-    private static $owns = [
-        'Image'
-    ];
+        private static $cascade_deletes = [
+            'Image'
+        ];
 
-    private static $cascade_deletes = [
-        'Image'
-    ];
+        private static $cascade_duplicates = [
+            'Image'
+        ];
 
-    private static $cascade_duplicates = [
-        'Image'
-    ];
+        private static $extensions = [
+            Versioned::class
+        ];
 
-    private static $extensions = [
-        Versioned::class
-    ];
+        private static $singular_name = 'Image';
 
-    private static $singular_name = 'Image';
+        private static $plural_name = 'Images';
 
-    private static $plural_name = 'Images';
+        private static $description = 'Full width image that provides a visual break in the page.';
 
-    private static $description = 'Full width image that provides a visual break in the page.';
+        private static $table_name = 'ImageElement';
 
-    private static $table_name = 'ImageElement';
+        public function getCMSFields() {
+            $fields = parent::getCMSFields();
 
-    public function getCMSFields()
-    {
-        $fields = parent::getCMSFields();
+            $fields->removeFieldFromTab('Root.Main', 'Title');
+            $fields->removeFieldFromTab('Root.Main', 'TitleAndDisplayed');
+            $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
+            $fields->removeByName('Settings');
 
-        $fields->removeFieldFromTab('Root.Main', 'Title');
-        $fields->removeFieldFromTab('Root.Main', 'TitleAndDisplayed');
-        $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
-        $fields->removeByName('Settings');
+            $fields->addFieldsToTab('Root.Main', [
+                $imageUpload = UploadField::create('Image', 'Image')->setDescription('')
+            ]);
 
-        $fields->addFieldsToTab('Root.Main', [
-            $imageUpload = UploadField::create('Image', 'Image')->setDescription('')
-        ]);
+            $imageUpload->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
+            $imageUpload->setFolderName('image-element');
 
-        $imageUpload->getValidator()->setAllowedExtensions(array(
-            'png','jpeg','jpg'
-        ));
-        $imageUpload->setFolderName('image-element');
+            return $fields;
+        }
 
-        return $fields;
-    }
-
-    public function getType()
-    {
-        return 'Image';
+        public function getType() {
+            return 'Image';
+        }
     }
 }

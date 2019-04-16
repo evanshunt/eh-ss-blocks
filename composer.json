@@ -7,11 +7,12 @@
         "issues": "https://github.com/evanshunt/eh-ss-blocks/issues"
     },
     "require": {
+        "silverstripe/vendor-plugin": "^1.0",
         "silverstripe/cms": "^4",
         "silverstripe/framework": "^4",
-        "dnadesign/silverstripe-elemental": "*",
-        "dnadesign/silverstripe-elemental-list": "*",
-        "bummzack/sortablefile": "^2.0"
+        "dnadesign/silverstripe-elemental": "^4",
+        "dnadesign/silverstripe-elemental-list": "^1.2"
+
     },
     "extra": {
         "installer-name": "elemental-addons",
