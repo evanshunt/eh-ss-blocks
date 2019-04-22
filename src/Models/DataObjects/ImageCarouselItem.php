@@ -7,6 +7,7 @@ namespace Elements {
     use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
     use SilverStripe\Assets\Image;
     use SilverStripe\AssetAdmin\Forms\UploadField;
+    use SilverStripe\Versioned\Versioned;
 
     class ImageCarouselItem extends DataObject {
 
@@ -24,6 +25,10 @@ namespace Elements {
         private static $cascade_duplicates = [
             'SlideImage'
         ];
+
+        private static $extensions = [
+            Versioned::class
+          ];
 
         private static $summary_fields = [
             'Title' => 'Title'
