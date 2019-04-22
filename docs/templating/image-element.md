@@ -2,10 +2,9 @@
 
 ### Template Convention:
 
-`EvansHunt/Elements/ContentElement.ss`
+`Elements/ImageElement.ss`
 
 ### Variables:
 
-- `$Title`: Element Title
-- `$ShowTitle`: Is the title displayed or not?
-- `$Copy`: Element Copy
+- `$Image`: Outputs the default image tag and all other info for the image
+- `$Image.URL`: Image URL
