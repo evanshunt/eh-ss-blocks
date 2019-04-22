@@ -2,7 +2,7 @@
 
 ### Template Convention:
 
-`EvansHunt/Elements/DocumentsListElement.ss`
+`Elements/DocumentsListElement.ss`
 
 ### Document List Variables:
 

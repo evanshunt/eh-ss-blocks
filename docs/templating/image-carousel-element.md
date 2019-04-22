@@ -2,7 +2,7 @@
 
 ### Template Convention:
 
-`EvansHunt/Elements/ImageCarouselElement.ss`
+`Elements/ImageCarouselElement.ss`
 
 ### Carousel Variables:
 
