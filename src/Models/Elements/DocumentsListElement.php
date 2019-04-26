@@ -7,6 +7,7 @@ namespace Elements {
     use SilverStripe\AssetAdmin\Forms\UploadField;
     use SilverStripe\Assets\File;
     use SilverStripe\Forms\OptionsetField;
+    use SilverStripe\Forms\RequiredFields;
     use Bummzack\SortableFile\Forms\SortableUploadField;
 
     class DocumentsListElement extends BaseElement {
