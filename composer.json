@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Elements\\": "src/"
+            "EvansHunt\\Elements\\": "src/"
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Elements {
+namespace EvansHunt\Elements {
 
     use SilverStripe\ORM\DataObject;
     use SilverStripe\Forms\FieldList;
