@@ -42,23 +42,25 @@ namespace EvansHunt\Elements {
 
         private static $table_name = 'ImageCarouselItem';
 
-        public function getCMSFields() {
-            $fields = parent::getCMSFields();
+        public function getCMSFields()
+        {
+            // Using beforeUpdateCMSFields allows extensions to modify these fields,
+            // because the extension is guaranteed to hook in AFTER this action.
+            $this->beforeUpdateCMSFields(function ($fields) {
+                $fields->removeByName('Sort');
+                $fields->removeByName('ParentID');
 
-            $fields->removeByName('Sort');
+                $fields->addFieldsToTab('Root.Main', [
+                    HTMLEditorField::create('Content', 'Content')->setRows(5),
+                    $SlideImageUpload = UploadField::create('SlideImage', 'Image')->setDescription('Image that is displayed in the carousel slide.')
+                ]);
 
-            $fields->addFieldsToTab('Root.Main',
-            [
-                HTMLEditorField::create('Content', 'Content')->setRows(5),
-                $SlideImageUpload = UploadField::create('SlideImage', 'Image')->setDescription('Image that is displayed in the carousel slide.')
-            ]
-            );
+                $SlideImageUpload->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
+                $SlideImageUpload->setAllowedFileCategories('image');
+                $SlideImageUpload->setFolderName('carousel');
+            });
 
-            $SlideImageUpload->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
-            $SlideImageUpload->setAllowedFileCategories('image');
-            $SlideImageUpload->setFolderName('carousel');
-
-            return $fields;
+            return parent::getCMSFields();
         }
 
         private static $owns = [

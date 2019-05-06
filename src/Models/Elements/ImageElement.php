@@ -23,21 +23,24 @@ namespace EvansHunt\Elements {
 
         private static $description = 'Basic image block.';
 
-        public function getCMSFields() {
-            $fields = parent::getCMSFields();
+        public function getCMSFields()
+        {
+            // Using beforeUpdateCMSFields allows extensions to modify these fields,
+            // because the extension is guaranteed to hook in AFTER this action.
+            $this->beforeUpdateCMSFields(function ($fields) {
+                $fields->removeFieldFromTab('Root.Main', 'TitleAndDisplayed');
+                $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
+                $fields->removeByName('Settings');
 
-            $fields->removeFieldFromTab('Root.Main', 'TitleAndDisplayed');
-            $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
-            $fields->removeByName('Settings');
+                $fields->addFieldsToTab('Root.Main', [
+                    $imageUpload = UploadField::create('Image', 'Image')
+                ]);
 
-            $fields->addFieldsToTab('Root.Main', [
-                $imageUpload = UploadField::create('Image', 'Image')
-            ]);
+                $imageUpload->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
+                $imageUpload->setFolderName('image-element');
+            });
 
-            $imageUpload->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
-            $imageUpload->setFolderName('image-element');
-
-            return $fields;
+            return parent::getCMSFields();
         }
 
         private static $owns = [

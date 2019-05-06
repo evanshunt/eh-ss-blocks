@@ -34,25 +34,28 @@ namespace EvansHunt\Elements {
             'ImageCarouselItems' => ImageCarouselItem::class
         ];
 
-        public function getCMSFields() {
-            $fields = parent::getCMSFields();
+        public function getCMSFields()
+        {
+            // Using beforeUpdateCMSFields allows extensions to modify these fields,
+            // because the extension is guaranteed to hook in AFTER this action.
+            $this->beforeUpdateCMSFields(function ($fields) {
+                $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
+                $fields->removeByName('Settings');
+                $fields->removeByName('ImageCarouselItems');
 
-            $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
-            $fields->removeByName('Settings');
-            $fields->removeByName('ImageCarouselItems');
+                $fields->addFieldsToTab('Root.Main', Fieldlist::create(
+                    HTMLEditorField::create('Body')->setRows(10),
+                    GridField::create(
+                        'ImageCarouselItems',
+                        'Carousel items',
+                        $this->ImageCarouselItems(),
+                        $gridConfig = GridFieldConfig_RecordEditor::create()
+                    )
+                ));
+                $gridConfig->addComponent(new GridFieldOrderableRows());
+            });
 
-            $fields->addFieldsToTab('Root.Main', Fieldlist::create(
-            HTMLEditorField::create('Body')->setRows(10),
-            GridField::create(
-                'ImageCarouselItems',
-                'Carousel items',
-                $this->ImageCarouselItems(),
-                $gridConfig = GridFieldConfig_RecordEditor::create()
-            )
-            ));
-            $gridConfig->addComponent(new GridFieldOrderableRows());
-
-            return $fields;
+            return parent::getCMSFields();
         }
 
         private static $owns = [

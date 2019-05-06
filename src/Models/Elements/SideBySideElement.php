@@ -34,32 +34,34 @@ namespace EvansHunt\Elements {
 
         public function getCMSFields()
         {
-            $fields = parent::getCMSFields();
+            // Using beforeUpdateCMSFields allows extensions to modify these fields,
+            // because the extension is guaranteed to hook in AFTER this action.
+            $this->beforeUpdateCMSFields(function ($fields) {
+                $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
+                $fields->removeByName('Settings');
 
-            $fields->removeFieldFromTab('Root.Settings', 'ExtraClass');
-            $fields->removeByName('Settings');
+                $fields->addFieldsToTab('Root.Left Block', [
+                    TextField::create('LeftTitle', 'Title'),
+                    TextField::create('LeftSubtitle', 'Subtitle'),
+                    HtmlEditorField::create('LeftCopy', 'Copy'),
+                    $leftImageUpload = UploadField::create('LeftBackground', 'Background')->setDescription('Background image that is displayed behind the content'),
+                    TextField::create('LeftLink', 'URL')
+                ]);
 
-            $fields->addFieldsToTab('Root.Left Block', [
-                TextField::create('LeftTitle', 'Title'),
-                TextField::create('LeftSubtitle', 'Subtitle'),
-                HtmlEditorField::create('LeftCopy', 'Copy'),
-                $leftImageUpload = UploadField::create('LeftBackground', 'Background')->setDescription('Background image that is displayed behind the content'),
-                TextField::create('LeftLink', 'URL')
-            ]);
+                $fields->addFieldsToTab('Root.Right Block', [
+                    TextField::create('RightTitle', 'Title'),
+                    TextField::create('RightSubtitle', 'Subtitle'),
+                    HtmlEditorField::create('RightCopy', 'Copy'),
+                    $rightImageUpload = UploadField::create('RightBackground', 'Background')->setDescription('Background image that is displayed behind the content'),
+                    TextField::create('RightLink', 'URL')
+                ]);
 
-            $fields->addFieldsToTab('Root.Right Block', [
-                TextField::create('RightTitle', 'Title'),
-                TextField::create('RightSubtitle', 'Subtitle'),
-                HtmlEditorField::create('RightCopy', 'Copy'),
-                $rightImageUpload = UploadField::create('RightBackground', 'Background')->setDescription('Background image that is displayed behind the content'),
-                TextField::create('RightLink', 'URL')
-            ]);
+                foreach ([$leftImageUpload, $rightImageUpload] as $imageUpload) {
+                    $imageUpload->setFolderName('background')->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
+                }
+            });
 
-            foreach ([$leftImageUpload, $rightImageUpload] as $imageUpload) {
-                $imageUpload->setFolderName('background')->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
-            };
-
-            return $fields;
+            return parent::getCMSFields();
         }
 
         private static $owns = [
