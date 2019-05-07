@@ -16,6 +16,9 @@ namespace EvansHunt\Elements {
         private static $plural_name = 'Side by side CTA Blocks';
         private static $description = 'Side by side CTA blocks with image behind content and a button.';
 
+        private static $inline_editable = false; // inline editing doesn't work with tabs
+
+
         private static $db = [
             'LeftTitle' => 'Varchar(255)',
             'LeftSubtitle' => 'Varchar(255)',
