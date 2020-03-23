@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b82dac26d3aa9d0c474c30f8f388d987",
+    "content-hash": "6c205271fb91c5b3225f7189a16d620f",
     "packages": [
         {
             "name": "bummzack/sortablefile",
@@ -237,6 +237,61 @@
                 "zikula"
             ],
             "time": "2017-12-29T09:13:20+00:00"
+        },
+        {
+            "name": "cyber-duck/silverstripe-linkitemfield",
+            "version": "4.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Cyber-Duck/Silverstripe-LinkItemField.git",
+                "reference": "5d391abedd950c42f1de148b26f259c3b964e84c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Cyber-Duck/Silverstripe-LinkItemField/zipball/5d391abedd950c42f1de148b26f259c3b964e84c",
+                "reference": "5d391abedd950c42f1de148b26f259c3b964e84c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6",
+                "unclecheese/display-logic": "^2.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "installer-name": "linkitemfield",
+                "expose": [
+                    "assets/css",
+                    "assets/js"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "CyberDuck\\LinkItemField\\": "src/",
+                    "CyberDuck\\LinkItemField\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Mc Cormack",
+                    "email": "andrewm@cyber-duck.co.uk",
+                    "homepage": "https://github.com/Andrew-Mc-Cormack"
+                }
+            ],
+            "description": "SilverStripe 4 custom form element for anchor, email, telephone, file, image, internal and external links",
+            "homepage": "http://github.com/cyber-duck/silverstripe-linkitemfield",
+            "keywords": [
+                "custom link field",
+                "has_many",
+                "has_one",
+                "linking",
+                "silverstripe",
+                "silverstripe 4"
+            ],
+            "time": "2019-10-17T22:26:11+00:00"
         },
         {
             "name": "dnadesign/silverstripe-elemental",
@@ -2593,6 +2648,66 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2018-07-26T11:19:56+00:00"
+        },
+        {
+            "name": "unclecheese/display-logic",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclecheese/silverstripe-display-logic.git",
+                "reference": "c5f807dc24765438b427814350cc884ca70498b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-display-logic/zipball/c5f807dc24765438b427814350cc884ca70498b0",
+                "reference": "c5f807dc24765438b427814350cc884ca70498b0",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^4.0"
+            },
+            "replace": {
+                "silverstripe/display-logic": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "se/selenium-server-standalone": "2.41.0",
+                "silverstripe/behat-extension": "^3@dev",
+                "silverstripe/serve": "^2"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "installer-name": "display-logic",
+                "expose": [
+                    "client"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "UncleCheese\\DisplayLogic\\": "src/",
+                    "UncleCheese\\DisplayLogic\\Tests\\": "tests/php/",
+                    "UncleCheese\\DisplayLogic\\Tests\\Behaviour\\": "tests/behat/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Uncle Cheese",
+                    "email": "unclecheese@leftandmain.com"
+                }
+            ],
+            "description": "Allows assignment of conditions for display and hide of specific form fields based on client side behavior.",
+            "keywords": [
+                "Forms",
+                "cms",
+                "display",
+                "logic",
+                "silverstripe"
+            ],
+            "time": "2019-10-15T23:31:03+00:00"
         },
         {
             "name": "webonyx/graphql-php",
