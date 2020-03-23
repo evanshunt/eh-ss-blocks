@@ -7,8 +7,8 @@
         "issues": "https://github.com/evanshunt/eh-ss-blocks/issues"
     },
     "require": {
-        "silverstripe/cms": "^4",
-        "silverstripe/framework": "^4",
+        "silverstripe/cms": ">4.3.6",
+        "silverstripe/framework": ">4.4.5",
         "dnadesign/silverstripe-elemental": "^2",
         "dnadesign/silverstripe-elemental-list": "^1",
         "bummzack/sortablefile": "^2.0",
