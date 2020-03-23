@@ -11,6 +11,8 @@ namespace EvansHunt\Elements {
     use SilverStripe\Forms\RequiredFields;
     use SilverStripe\Core\Convert;
     use SilverStripe\View\Requirements;
+    use SilverStripe\Versioned\Versioned;
+    use SilverStripe\Security\Permission;
 
     class ImageCarouselElement extends BaseElement
     {
@@ -32,6 +34,10 @@ namespace EvansHunt\Elements {
 
         private static $has_many = [
             'ImageCarouselItems' => ImageCarouselItem::class
+        ];
+
+        private static $extensions = [
+            Versioned::class
         ];
 
         public function getCMSFields()

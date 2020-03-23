@@ -6,6 +6,8 @@ namespace EvansHunt\Elements {
     use SilverStripe\Forms\FieldList;
     use SilverStripe\Assets\Image;
     use SilverStripe\AssetAdmin\Forms\UploadField;
+    use SilverStripe\Versioned\Versioned;
+    use SilverStripe\Security\Permission;
 
     class ImageElement extends BaseElement {
 
@@ -22,6 +24,10 @@ namespace EvansHunt\Elements {
         private static $plural_name = 'Images';
 
         private static $description = 'Basic image block.';
+
+        private static $extensions = [
+            Versioned::class
+        ];
 
         public function getCMSFields()
         {

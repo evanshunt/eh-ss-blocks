@@ -9,6 +9,8 @@ namespace EvansHunt\Elements {
     use SilverStripe\Forms\OptionsetField;
     use SilverStripe\Forms\RequiredFields;
     use Bummzack\SortableFile\Forms\SortableUploadField;
+    use CyberDuck\LinkItemField\Forms\LinkItemField;
+use CyberDuck\LinkItemField\Model\LinkItem;
 
     class DocumentsListElement extends BaseElement {
 
@@ -27,12 +29,20 @@ namespace EvansHunt\Elements {
             'DisplayType' => "Enum('List, Icons')"
         ];
 
+        private static $has_one = [
+            'ReadMoreLink' => LinkItem::class
+          ];
+
         private static $many_many = [
             'DocumentFiles' => File::Class
         ];
 
         private static $many_many_extraFields = [
             'DocumentFiles' => ['SortOrder' => 'Int']
+        ];
+
+        private static $extensions = [
+            Versioned::class
         ];
 
         public function getCMSFields()
@@ -47,17 +57,17 @@ namespace EvansHunt\Elements {
                 $fields->addFieldsToTab('Root.Main', [
                     $documentUpload = SortableUploadField::create('DocumentFiles', 'Documents')
                     ->setDescription('Upload one or more documents'),
-                    HTMLEditorField::create('Content', 'Content')->setRows(10)
+                    HTMLEditorField::create('Content', 'Content')->setRows(10),
+                    OptionsetField::create(
+                        'DisplayType',
+                        'Display Type',
+                        [
+                            'List' => 'List - simple list of titles and links to documents',
+                            'Icons' => 'Icons - medium size icons with links to documents',
+                        ],
+                        'List'
+                    )
                 ]);
-                $fields->addFieldToTab('Root.Main', OptionsetField::create(
-                    'DisplayType',
-                    'Display Type',
-                    [
-                        'List' => 'List - simple list of titles and links to documents',
-                        'Icons' => 'Icons - medium size icons with links to documents',
-                    ],
-                    'List'
-                ));
 
                 $documentUpload->getValidator()->setAllowedExtensions(['pdf', 'doc', 'xls', 'ppt']);
                 $documentUpload->setAllowedFileCategories('document');
@@ -68,6 +78,7 @@ namespace EvansHunt\Elements {
         }
 
         private static $owns = [
+            'ReadMoreLink',
             'DocumentFiles'
         ];
 

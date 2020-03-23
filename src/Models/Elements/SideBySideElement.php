@@ -8,6 +8,10 @@ namespace EvansHunt\Elements {
     use SilverStripe\Assets\Image;
     use SilverStripe\AssetAdmin\Forms\UploadField;
     use SilverStripe\Assets\File;
+    use CyberDuck\LinkItemField\Forms\LinkItemField;
+    use CyberDuck\LinkItemField\Model\LinkItem;
+    use SilverStripe\Versioned\Versioned;
+    use SilverStripe\Security\Permission;
 
     class SideBySideElement extends BaseElement
     {
@@ -23,16 +27,20 @@ namespace EvansHunt\Elements {
             'LeftTitle' => 'Varchar(255)',
             'LeftSubtitle' => 'Varchar(255)',
             'LeftCopy' => 'HTMLText',
-            'LeftLink' => 'Varchar(255)', // TODO: Change this with proper link module.
             'RightTitle' => 'Varchar(255)',
             'RightSubtitle' => 'Varchar(255)',
             'RightCopy' => 'HTMLText',
-            'RightLink' => 'Varchar(255)', // TODO: Change this with proper link module.
         ];
 
         private static $has_one = [
             'LeftBackground' => Image::class,
-            'RightBackground' => Image::class
+            'LeftCTA' => LinkItem::class,
+            'RightBackground' => Image::class,
+            'RightCTA' => LinkItem::class
+        ];
+
+        private static $extensions = [
+            Versioned::class
         ];
 
         public function getCMSFields()
@@ -48,7 +56,7 @@ namespace EvansHunt\Elements {
                     TextField::create('LeftSubtitle', 'Subtitle'),
                     HtmlEditorField::create('LeftCopy', 'Copy'),
                     $leftImageUpload = UploadField::create('LeftBackground', 'Background')->setDescription('Background image that is displayed behind the content'),
-                    TextField::create('LeftLink', 'URL')
+                    LinkItemField::create('LeftCTAID', 'Call To Action'),
                 ]);
 
                 $fields->addFieldsToTab('Root.Right Block', [
@@ -56,7 +64,7 @@ namespace EvansHunt\Elements {
                     TextField::create('RightSubtitle', 'Subtitle'),
                     HtmlEditorField::create('RightCopy', 'Copy'),
                     $rightImageUpload = UploadField::create('RightBackground', 'Background')->setDescription('Background image that is displayed behind the content'),
-                    TextField::create('RightLink', 'URL')
+                    LinkItemField::create('RightCTAID', 'Call To Action'),
                 ]);
 
                 foreach ([$leftImageUpload, $rightImageUpload] as $imageUpload) {
@@ -69,7 +77,9 @@ namespace EvansHunt\Elements {
 
         private static $owns = [
             'LeftBackground',
-            'RightBackground'
+            'RightBackground',
+            'LeftCTA',
+            'RightCTA'
         ];
 
         public function getType()
