@@ -352,8 +352,8 @@
             },
             "autoload": {
                 "psr-4": {
-                    "CyberDuck\\LinkItemField\\": "src/",
-                    "CyberDuck\\LinkItemField\\Tests\\": "tests/"
+                    "EvansHunt\\LinkItemField\\": "src/",
+                    "EvansHunt\\LinkItemField\\Tests\\": "tests/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",

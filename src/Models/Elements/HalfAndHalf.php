@@ -18,8 +18,8 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image_Backend;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-use CyberDuck\LinkItemField\Forms\LinkItemField;
-use CyberDuck\LinkItemField\Model\LinkItem;
+use EvansHunt\LinkItemField\Forms\LinkItemField;
+use EvansHunt\LinkItemField\Model\LinkItem;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Security\Permission;
 

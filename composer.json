@@ -12,7 +12,7 @@
         "dnadesign/silverstripe-elemental": "^2",
         "dnadesign/silverstripe-elemental-list": "^1",
         "bummzack/sortablefile": "^2.0",
-        "cyber-duck/silverstripe-linkitemfield": "^4.1"
+        "evanshunt/Silverstripe-LinkItemField": "dev-master"
     },
     "extra": {
         "installer-name": "elemental-addons",
