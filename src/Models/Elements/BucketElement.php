@@ -3,25 +3,12 @@
 namespace EvansHunt\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\TabSet;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\Core\Convert;
-use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
-use SilverStripe\View\ArrayData;
-use SilverStripe\View\Requirements;
-use SilverStripe\Assets\File;
-use SilverStripe\Assets\Image_Backend;
-use SilverStripe\Core\Manifest\ModuleResourceLoader;
-use SilverStripe\ORM\FieldType\DBHTMLText;
 use CyberDuck\LinkItemField\Forms\LinkItemField;
 use CyberDuck\LinkItemField\Model\LinkItem;
 use SilverStripe\Versioned\Versioned;
-use SilverStripe\Security\Permission;
 
 class BucketElement extends BaseElement
 {
@@ -87,7 +74,7 @@ class BucketElement extends BaseElement
         return $fields;
     }
 
-    public function getType()
+    public function getType() : string
     {
         return 'Bucket';
     }

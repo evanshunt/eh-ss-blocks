@@ -7,7 +7,6 @@ use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use DNADesign\ElementalList\Model\ElementList;
 use SilverStripe\Versioned\Versioned;
-use SilverStripe\Security\Permission;
 
 class BucketsListElement extends ElementList
 {
@@ -35,7 +34,7 @@ class BucketsListElement extends ElementList
 
   private static $plural_name = 'Buckets lists';
 
-  public function getType()
+  public function getType() : string
   {
     return 'Buckets List';
   }

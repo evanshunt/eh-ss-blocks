@@ -1,70 +1,68 @@
 <?php
 
-namespace EvansHunt\Elements {
+namespace EvansHunt\Elements;
 
-    use SilverStripe\ORM\DataObject;
-    use SilverStripe\Forms\FieldList;
-    use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-    use SilverStripe\Assets\Image;
-    use SilverStripe\AssetAdmin\Forms\UploadField;
-    use SilverStripe\Versioned\Versioned;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Versioned\Versioned;
 
-    class ImageCarouselItem extends DataObject {
+class ImageCarouselItem extends DataObject {
 
-        private static $has_one = [
-            'SlideImage' => Image::class,
-            'Parent' => ImageCarouselElement::class
+    private static $has_one = [
+        'SlideImage' => Image::class,
+        'Parent' => ImageCarouselElement::class
+    ];
+
+    private static $db = [
+        'Title' => 'Varchar(255)',
+        'Content' => 'HTMLText',
+        'Sort' => 'Int'
+    ];
+
+    private static $cascade_duplicates = [
+        'SlideImage'
+    ];
+
+    private static $extensions = [
+        Versioned::class
         ];
 
-        private static $db = [
-            'Title' => 'Varchar(255)',
-            'Content' => 'HTMLText',
-            'Sort' => 'Int'
-        ];
+    private static $summary_fields = [
+        'Title' => 'Title'
+    ];
 
-        private static $cascade_duplicates = [
-            'SlideImage'
-        ];
+    private static $singular_name = 'Image Carousel Item';
 
-        private static $extensions = [
-            Versioned::class
-          ];
+    private static $plural_name = 'Image Carousel Items';
 
-        private static $summary_fields = [
-            'Title' => 'Title'
-        ];
+    private static $description = 'Image Carousel Item Data Object';
 
-        private static $singular_name = 'Image Carousel Item';
+    private static $table_name = 'ImageCarouselItem';
 
-        private static $plural_name = 'Image Carousel Items';
+    public function getCMSFields()
+    {
+        // Using beforeUpdateCMSFields allows extensions to modify these fields,
+        // because the extension is guaranteed to hook in AFTER this action.
+        $this->beforeUpdateCMSFields(function ($fields) {
+            $fields->removeByName('Sort');
+            $fields->removeByName('ParentID');
 
-        private static $description = 'Image Carousel Item Data Object';
+            $fields->addFieldsToTab('Root.Main', [
+                HTMLEditorField::create('Content', 'Content')->setRows(5),
+                $SlideImageUpload = UploadField::create('SlideImage', 'Image')->setDescription('Image that is displayed in the carousel slide.')
+            ]);
 
-        private static $table_name = 'ImageCarouselItem';
+            $SlideImageUpload->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
+            $SlideImageUpload->setAllowedFileCategories('image');
+            $SlideImageUpload->setFolderName('carousel');
+        });
 
-        public function getCMSFields()
-        {
-            // Using beforeUpdateCMSFields allows extensions to modify these fields,
-            // because the extension is guaranteed to hook in AFTER this action.
-            $this->beforeUpdateCMSFields(function ($fields) {
-                $fields->removeByName('Sort');
-                $fields->removeByName('ParentID');
-
-                $fields->addFieldsToTab('Root.Main', [
-                    HTMLEditorField::create('Content', 'Content')->setRows(5),
-                    $SlideImageUpload = UploadField::create('SlideImage', 'Image')->setDescription('Image that is displayed in the carousel slide.')
-                ]);
-
-                $SlideImageUpload->getValidator()->setAllowedExtensions(['png','jpeg','jpg']);
-                $SlideImageUpload->setAllowedFileCategories('image');
-                $SlideImageUpload->setFolderName('carousel');
-            });
-
-            return parent::getCMSFields();
-        }
-
-        private static $owns = [
-            'SlideImage'
-        ];
+        return parent::getCMSFields();
     }
+
+    private static $owns = [
+        'SlideImage'
+    ];
 }

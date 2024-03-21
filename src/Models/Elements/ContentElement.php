@@ -3,23 +3,14 @@
 namespace EvansHunt\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
-use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\TabSet;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core\Convert;
-use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 use SilverStripe\View\ArrayData;
-use SilverStripe\View\Requirements;
-use SilverStripe\Assets\File;
-use SilverStripe\Assets\Image_Backend;
-use SilverStripe\Core\Manifest\ModuleResourceLoader;
-use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Versioned\Versioned;
-use SilverStripe\Security\Permission;
 
 class ContentElement extends BaseElement
 {
@@ -35,8 +26,7 @@ class ContentElement extends BaseElement
     ];
 
     private static $has_one = [
-        'Background' => Image::class/*,
-        'CTA' => LinkItem::class*/
+        'Background' => Image::class
     ];
 
     private static $owns = [
@@ -87,7 +77,7 @@ class ContentElement extends BaseElement
         return $fields;
     }
 
-    public function getType()
+    public function getType() : string
     {
         return 'Content';
     }
